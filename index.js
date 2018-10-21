@@ -36,6 +36,7 @@ app.get('/data', getAllResponses);
 
 app.post('/', function (req, res) {
     // console.log(req.body);
+    console.log(request);
     var intent = req.body.req1;
     console.log(intent);
     var dbo = this.conn.db("heroku_92150sf3");
