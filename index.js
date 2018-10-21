@@ -16,18 +16,19 @@ MongoClient.connect(url,{ useNewUrlParser: true } , function(err, db) {
   console.log("Connected on port "+PORT); 
   this.conn = db; 
 });
-
-app.get('/',(req,res)=>{
-    res.json('Connected successfully');
-})
-
-app.get('/data', function (req, res) {
-  var dbo = this.conn.db("db");
+function getAllResponses(req,res){
+var dbo = this.conn.db("heroku_92150sf3");
   //Find all documents in the customers collection:
   dbo.collection("test").find({}).toArray(function(err, result) {
     if (err) throw err;
     console.log(result);
     res.json(result);
   });
+}
+
+app.get('/',(req,res)=>{
+    res.json('Connected successfully');
 })
+
+app.get('/data', getAllResponses);
 
