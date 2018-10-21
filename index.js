@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 var conn;
-MongoClient.connect(url, function(err, db) {
+MongoClient.connect(url,{ useNewUrlParser: true } , function(err, db) {
   if (err) throw err;
   else 
   console.log("Connected on port "+PORT); 
