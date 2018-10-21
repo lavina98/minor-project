@@ -17,6 +17,10 @@ MongoClient.connect(url, function(err, db) {
   this.conn = db; 
 });
 
+app.get('/',(req,res)=>{
+    res.json('Connected successfully');
+})
+
 app.get('/data', function (req, res) {
   var dbo = this.conn.db("db");
   //Find all documents in the customers collection:
