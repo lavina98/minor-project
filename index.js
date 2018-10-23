@@ -111,7 +111,3 @@ app.post('/', function (req, res) {
      }
     })    
     });
-
-    app.get('/testing', function(req,res) {
-      res.json("LUUUUUVINA IS THE BEST");
-    });
