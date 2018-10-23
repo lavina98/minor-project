@@ -5,6 +5,7 @@ const $ = require('cheerio');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://heroku_92150sf3:c3bghg1817nkncmtbsafjpblje@ds237713.mlab.com:37713/heroku_92150sf3";
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
 app.use(bodyParser.json());
@@ -139,4 +140,8 @@ app.post('/', function (req, res) {
         }).catch(function (err) {});
      }
     })    
+    });
+
+    app.get('/testing', function(req,res) {
+      res.json("LUUUUUVINA IS THE BEST");
     });
