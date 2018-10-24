@@ -35,6 +35,7 @@ app.get('/',(req,res)=>{
 
 app.get('/data', getAllResponses);
 
+
 app.post('/', function (req, res) {
   console.log(req.body);
   // var intent = req.body.req1;
@@ -111,3 +112,15 @@ app.post('/', function (req, res) {
      }
     })    
     });
+
+app.post('/questions', function(req,res){
+      console.log(req.body);
+      var collection=req.body.subject+"_QandA";
+      var dbo = this.conn.db("heroku_92150sf3");
+      dbo.collection(collection).aggregate([{$sample: {size: 5}}]).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        res.json(result);
+      });
+      
+    })
