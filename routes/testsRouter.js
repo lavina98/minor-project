@@ -7,7 +7,7 @@ router.post('/', function(req, res){
   tests.getTest(req.body.subject).then(
     function(result){
       console.log(result);
-      re.json(result);
+      res.json(result);
     }
   )
 });
