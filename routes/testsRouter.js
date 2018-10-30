@@ -2,8 +2,14 @@ var express = require('express');
 var router = express.Router();
 var tests = require('../models/test');
 
-router.get('/', function(req, res){
+router.post('/', function(req, res){
   console.log(req.header);  
+  tests.getTest(req.body.subject).then(
+    function(result){
+      console.log(result);
+      re.json(result);
+    }
+  )
 });
 
 router.post('/submit', function(req, res){

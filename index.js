@@ -12,6 +12,10 @@ app.listen(port, () => {
     console.log('Server running at port '+port);
 })
 
+app.get('/',function(req,res){
+    res.json('Connected to heroku');
+})
+
 app.use('/user', userRouter);
 app.use('/tests', testsRouter);
 app.use('/dialogflow', dialogFlowRouter);
